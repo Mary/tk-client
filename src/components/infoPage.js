@@ -29,16 +29,15 @@ export class infoPage extends React.Component {
         e.preventDefault()
         const allValues = { title: e.target.title.value, time: e.target.time.value, priority: e.target.priority.value, description: e.target.description.value, isPublic: e.target.isPublic.value }
         this.props.dispatch(updateActivity(this.props.selectedActivity.id, allValues))
-        // this.setState({ editMode: false })
         this.props.history.push("../user-list")
-        console.log('hi3', allValues)
+     
        
     }
     editActivity = () => {
         return (
             <>
                 <div className="banner">
-                    <img src={Banner}></img>
+                  <Banner />
                 </div>
                 <Header title={this.props.selectedActivity.title} />
                 <div className="activityForm">

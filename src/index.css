@@ -1,13 +1,252 @@
 body {
-  margin: 0;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f2417c
+}
+#bg{
+  height: 100vh;
+  object-fit: contain;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: -1;
+  background: #f2417c;
+}
+.logo{
+  width: 60vw;
+ display:flex;
+ padding-top:10%;
+ padding-bottom: 5%;
+  top:0;
+  left: 0;
+  margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#root{
+  width:100%;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  
+}
+.landing-page {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+.desc{
+  text-align: center;
+  font-size: 70%;
+}
+.dashboard {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+a{
+  display: block;
+  color: white;
+  text-decoration: none;
+
+}
+.black-button{
+  display:flex;
+  justify-content: space-around;
+  background: black;
+  width: 30%;
+  padding:10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.close-button{
+  color: grey;
+  font-size: 60%;
+  padding:10px;
+}
+.fa-window-close{
+  color: black;
+}
+.addword{  
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+
+}
+.browse{
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+.loginpage{
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+.signuppage{
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+.info{
+  width: 90%;
+margin: 0 auto;
+  overflow: auto;
+  padding: 20px;
+}
+.mylist{
+  width: 90%;
+  margin: 0 auto;
+
+}
+.mylistcontainer{
+  width: 90%;
+  border: 3px solid black;
+  border-radius: 5px;
+  overflow: auto;
+}
+.browselistcontainer{
+  width: 90%;
+  border-radius: 5px;
+  overflow: auto;
+}
+.sign-up-Div{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+input{
+  border-radius: 2px;
+  border: 2px solid black;
+  width:70%;
+  
+}
+input [type=text] {
+  font-weight: bold !important;
+}
+.sign-up-form input:focus{
+  outline: none !important;
+  border:2px solid #eb3bf6;
+}
+.sign-up-form textarea:focus, input:focus {
+  color: #ee8743;
+  font-weight: bold;
+}
+
+.login-form input:focus{
+  outline: none !important;
+  border:2px solid #b1f63a;
+}
+.login-form textarea:focus, input:focus {
+  color: #63bdd0;
+  font-weight: bold;
+}
+.addWordForm input:focus{
+outline: none !important;
+border:2px solid #3b8eec;
+}
+.addWordForm textarea:focus, input:focus {
+  color: #e9a400;
+  font-weight: bold;
+}
+
+.addWordForm textarea:focus{
+  outline: none !important;
+  border:2px solid #3b8eec
+  }
+  .addWordForm textarea:focus, input:focus {
+    color: #e9a400;
+    font-weight: bold;
+  }
+.banner{
+  display: flex;
+  background-color: black;
+  padding:5px;
+  justify-content: center;
+}
+.banner img{
+  width: 35%;
+  height: 35%;
+}
+.header{
+  width: 90%;
+display:flex;
+justify-content: space-between;
+padding: 01em;
+
+}
+.footer{
+  position: fixed;
+  bottom:0;
+  right: 0;
+  margin: 20px;
+}
+label{
+  display:block;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  border: 1px solid black;
+  margin: 15px;
+  background-color: black;
+  padding-left: 5px;
+  width: 75%;
+  color: white;
+  border-radius: 5px;
+}
+@media only screen and (min-width: 436px) {
+  
+  html {
+  font: 200%/1.25 "Open Sans", sans-serif;
+}
+}
+dt {
+  font-weight: bold;
+}
+
+dl,
+dd {
+  font-size: .9rem;
+}
+
+dd {
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 1em;
+  background-color: black;
+  color: white;
+}
+button{
+  background: black;
+  width: 150px;
+  padding:10px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 50%;
+  font-weight: bold;
 }
