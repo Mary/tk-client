@@ -179,7 +179,7 @@ export const updateActivityError = error => ({
 export const updateActivity = (id, updatedActivity) => (dispatch, getState) => {
 
     const authToken = getState().authReducer.authToken;
-    return fetch(`${API_BASE_URL}/activites/update/${id}`, {
+    return fetch(`${API_BASE_URL}/activities/update/${id}`, {
         method: 'PUT',
         headers: {
             Authorization: `Bearer ${authToken}`,

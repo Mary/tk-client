@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import { fetchPublic, deleteActivity, updateActivity } from '../actions/activity';
 import { Redirect } from 'react-router-dom';
 import Banner from './banner';
-
+/* eslint no-restricted-globals:0 */
 export class infoPage extends React.Component {
     state = {
         submitted: false
     }
     componentDidMount() {
+        console.log('mounted', this.props.selectedActivity.user_Id.username)
         return this.props.dispatch(fetchPublic());
+        
     }
     componentDidUpdate(prevProps) {
         if( this.props.selectedActivity.title !== prevProps.selectedActivity.title) {
@@ -19,16 +21,17 @@ export class infoPage extends React.Component {
       }
       triggerDelete(id) {
         this.props.dispatch(deleteActivity(id))
-        this.setState({ Redirect: true, to: "/dashboard" })
+        this.props.history.push("../user-list")
     }
     
 
      handleSubmit = (e) => {//e.target.selectedValue
         e.preventDefault()
-        // const allValues = { title: this.title.value, time: this.time.value, priority: this.priority.value, description: this.description.value, isPublic: this.isPublic.value }
-        // this.props.dispatch(updateActivity(this.props.selectedActivity.id, allValues))
-        this.setState({ editMode: false })
-        console.log('hi', e.target)
+        const allValues = { title: e.target.title.value, time: e.target.time.value, priority: e.target.priority.value, description: e.target.description.value, isPublic: e.target.isPublic.value }
+        this.props.dispatch(updateActivity(this.props.selectedActivity.id, allValues))
+        // this.setState({ editMode: false })
+        this.props.history.push("../user-list")
+        console.log('hi3', allValues)
        
     }
     editActivity = () => {
@@ -39,7 +42,10 @@ export class infoPage extends React.Component {
                 </div>
                 <Header title={this.props.selectedActivity.title} />
                 <div className="activityForm">
-                    <form>
+                <form onSubmit={(e)=>{
+        e.preventDefault();
+        this.handleSubmit(e);
+      }}>
                         <label>Title:</label>
                         <input
                             name="title"
@@ -89,7 +95,7 @@ export class infoPage extends React.Component {
                             <option value="false">No, Keep Private</option>
                         </select>
                       
-                        <button type="submit" onClick={(e) => { this.handleSubmit(e) }}>
+                        <button type="submit">
                             Update Activity</button>
                     </form>
                 </div>
@@ -104,12 +110,19 @@ export class infoPage extends React.Component {
         let deleteActivityButton;
         let editActivityButton;
         let publicStatus;
+        let currentuserowned;
         if(this.props.selectedActivity.isPublic===true){
             publicStatus="Public"
         }
         else{
             publicStatus="Private"
         }
+        if(this.props.selectedActivity.user_Id === this.props.username.id) {
+            currentuserowned="(You! 😊)"
+        }
+        // else{
+        //     currentuserowned = this.props.selectedActivity.createdBy
+        // }
         if (this.state.editMode) {
             return this.editActivity()
         }
@@ -143,6 +156,8 @@ export class infoPage extends React.Component {
                                 <dt>Public or Private:</dt>
                                 <dd>{publicStatus}</dd>
                                 <dd>{this.props.selectedActivity.isPublic}</dd>
+                                <dt>Created By:</dt>
+                                <dd>{this.props.selectedActivity.createdBy} {currentuserowned}</dd>
 
                                 {editActivityButton}
                                 {deleteActivityButton}
