@@ -26,6 +26,7 @@ export class LoginForm extends React.Component {
                 )}>
                 {error}
                 <label htmlFor="username">Username</label>
+        
                 <Field
                     component={Input}
                     type="text"

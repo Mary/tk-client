@@ -1,178 +1,8 @@
-// import React from 'react';
-// import Header from './header';
-// import { connect } from 'react-redux';
-// import { fetchPublic, deleteActivity, updateActivity } from '../actions/activity';
-// import { Redirect } from 'react-router-dom';
-// import Banner from './banner';
-
-// export class infoPage extends React.Component {
-//     state = {
-//         submitted: false
-//     }
-//     componentDidMount() {
-//         return this.props.dispatch(fetchPublic());
-//     }
-//     componentDidUpdate(prevProps) {
-//         if( this.props.selectedActivity.title !== prevProps.selectedActivity.title) {
-//           console.log(this.props.selectedActivity.title, prevProps.selectedActivity.title,'CONSOLELOG')
-//         }
-//       }
-//       triggerDelete(id) {
-//         this.props.dispatch(deleteActivity(id))
-//         this.setState({ Redirect: true, to: "/dashboard" })
-//     }
-    
-
-//      handleSubmit = (e) => {//e.target.selectedValue
-//         e.preventDefault()
-//         // const allValues = { title: this.title.value, time: this.time.value, priority: this.priority.value, description: this.description.value, isPublic: this.isPublic.value }
-//         // this.props.dispatch(updateActivity(this.props.selectedActivity.id, allValues))
-//         // this.setState({ editMode: false })
-//         console.log(allValues)
-       
-//     }
-//     editActivity = () => {
-//         return (
-//             <>
-//                 <div className="banner">
-//                     <img src={Banner}></img>
-//                 </div>
-//                 <Header title={this.props.selectedActivity.title} />
-//                 <div className="activityForm">
-//                     <form>
-//                         <label>Title:</label>
-//                         <input
-//                             name="title"
-//                             label="Title"
-//                             defaultValue={this.props.selectedActivity.title}
-//                             ref={(node) => { this.title = node }}
-//                         />
-//                         <label>Time to Complete:</label>
-//                         <select //check here
-//                             name="time"
-//                             label="Time"
-//                             defaultValue={this.props.selectedActivity.time}
-//                             ref={(node) => { this.time = node }}>
-//                             <option value="15">15 minutes</option>
-//                             <option value="30">30 minutes</option>
-//                             <option value="45">45 minutes</option>
-//                             <option value="1">1 Hour</option>
-//                             <option value="1+">More than 1 Hour</option>
-//                         </select>
-
-//                         <label>Priority</label>
-//                         <select //check here
-//                             name="priority"
-//                             label="Priority"
-//                             defaultValue={this.props.selectedActivity.priority}
-//                             ref={(node) => { this.priority = node }}>
-//                             <option value="1">(1) URGENT</option>
-//                             <option value="2">(2) Need To Do</option>
-//                             <option value="3">(3) Can Do Whenever</option>
-//                         </select>
-
-//                         <label>Description:</label>
-//                         <textarea
-//                             name="description"
-//                             label="Description"
-//                             defaultValue={this.props.selectedActivity.description}
-//                             ref={(node) => { this.description = node }}
-//                         />
-                 
-//                  <label>Make Public for others to see?</label>
-//                         <select //check here
-//                             name="isPublic"
-//                             label="Make Public for others to see?"
-//                             defaultValue={this.props.selectedActivity.isPublic}
-//                             ref={(node) => { this.priority = node }}>
-//                             <option value="true">Yes, Make Public</option>
-//                             <option value="false">No, Keep Private</option>
-//                         </select>
-                      
-//                         <button type="submit" onClick={(e) => { this.handleSubmit(e) }}>
-//                             Update Activity</button>
-//                     </form>
-//                 </div>
-//             </>
-//         )
-//     }
-
-
-//     render() {
-
-//         const id = this.props.selectedActivity ? this.props.selectedActivity.id : null;
-//         let deleteActivityButton;
-//         let editActivityButton;
-//         let publicStatus;
-//         if(this.props.selectedActivity.isPublic===true){
-//             publicStatus="Public"
-//         }
-//         else{
-//             publicStatus="Private"
-//         }
-//         if (this.state.editMode) {
-//             return this.editActivity()
-//         }
-//         if (this.props.selectedActivity.user_Id === this.props.username.id) {
-//             deleteActivityButton = (
-//                 <button onClick={() => this.triggerDelete(id)}> Delete Activity</button>
-//             );
-//             editActivityButton = (
-//                 <button onClick={() => this.setState({ editMode: true })}>Edit Activity</button>
-//             );
-//         }
-//         return (
-//             <React.Fragment>
-//                 {this.state.Redirect ? <Redirect to={this.state.to} /> : null}
-//                 <div className="banner">
-//                     <img src={Banner}></img>
-//                 </div>
-//                 <Header title={this.props.selectedActivity.title} />
-//                 {this.state.editMode ? this.editActivity() : (
-//                     this.props.selectedActivity && (
-//                         <div className="info">
-//                             <dl>
-//                                 <dt>Title:</dt>
-//                                 <dd>{this.props.selectedActivity.title}</dd>
-//                                 <dt>Time To Complete: </dt>
-//                                 <dd>{this.props.selectedActivity.time}</dd>
-//                                 <dt>Priority:</dt>
-//                                 <dd>{this.props.selectedActivity.priority}</dd>
-//                                 <dt>Description:</dt>
-//                                 <dd>{this.props.selectedActivity.description}</dd>
-//                                 <dt>Public or Private:</dt>
-//                                 <dd>{publicStatus}</dd>
-//                                 <dd>{this.props.selectedActivity.isPublic}</dd>
-
-//                                 {editActivityButton}
-//                                 {deleteActivityButton}
-//                             </dl>
-//                         </div>)
-//                 )}
-//             </React.Fragment>
-//         );
-//     }
-// }
-
-
-// const mapStateToProps = (state, originalProps) => {
-//     const selectedActivity = state.activityReducer.publicList.find(activity => activity.id === originalProps.match.params.activityId)
-//         || state.activityReducer.userList.find(activity => activity.id === originalProps.match.params.activityId)
-//     return {
-//         username: state.authReducer.currentUser,
-//         selectedActivity
-//     };
-// };
-// export default (connect(mapStateToProps)(infoPage));
-
-
-
 import React from 'react';
 import Header from './header';
 import { connect } from 'react-redux';
 import { fetchPublic, deleteActivity, updateActivity } from '../actions/activity';
 import { Redirect } from 'react-router-dom';
-import { reduxForm } from 'redux-form';
 import Banner from './banner';
 
 export class infoPage extends React.Component {
@@ -192,12 +22,15 @@ export class infoPage extends React.Component {
         this.setState({ Redirect: true, to: "/dashboard" })
     }
     
-    onSubmit(values) {
-        const allValues = { title: values.title, time: values.time, priority: values.priority, description: values.description, isPublic: values.isPublic }
-        // return this.props.dispatch(updateActivity(this.props.selectedActivity.id, allValues));
-        console.log(values)
-    }
 
+     handleSubmit = (e) => {//e.target.selectedValue
+        e.preventDefault()
+        // const allValues = { title: this.title.value, time: this.time.value, priority: this.priority.value, description: this.description.value, isPublic: this.isPublic.value }
+        // this.props.dispatch(updateActivity(this.props.selectedActivity.id, allValues))
+        this.setState({ editMode: false })
+        console.log('hi', e.target)
+       
+    }
     editActivity = () => {
         return (
             <>
@@ -206,11 +39,7 @@ export class infoPage extends React.Component {
                 </div>
                 <Header title={this.props.selectedActivity.title} />
                 <div className="activityForm">
-                    <form
-                     className="editactivityform"
-                     onSubmit={this.props.handleSubmit(values =>
-                         this.onSubmit(values)
-                     )}>
+                    <form>
                         <label>Title:</label>
                         <input
                             name="title"
@@ -259,10 +88,9 @@ export class infoPage extends React.Component {
                             <option value="true">Yes, Make Public</option>
                             <option value="false">No, Keep Private</option>
                         </select>
-                        <button type="submit">
-                    Update Activity
-                </button>
-                        
+                      
+                        <button type="submit" onClick={(e) => { this.handleSubmit(e) }}>
+                            Update Activity</button>
                     </form>
                 </div>
             </>
@@ -335,7 +163,5 @@ const mapStateToProps = (state, originalProps) => {
         selectedActivity
     };
 };
-export default connect(mapStateToProps)(reduxForm({
-    form: 'editactivityform',
-    // validate
-})(infoPage));
+export default (connect(mapStateToProps)(infoPage));
+
