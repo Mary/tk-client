@@ -4,10 +4,9 @@ import { required, nonEmpty, isTrimmed } from '../validators';
 import Input from './input';
 import {addActivity} from '../actions/activity';
 
-export class addActivityForm extends React.Component {//this.state.title onChange saves to the state everytime it changes
+export class addActivityForm extends React.Component {
     onSubmit(values) {
         const {title, time, priority, description, isPublic} = values;
-     console.log(values)
         return this.props.dispatch(addActivity(title, time, priority, description, isPublic))
         .then(()=>this.props.dispatch(reset('addActivity')))
     }

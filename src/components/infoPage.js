@@ -10,13 +10,12 @@ export class infoPage extends React.Component {
         submitted: false
     }
     componentDidMount() {
-        console.log('mounted', this.props.selectedActivity.user_Id.username)
+ 
         return this.props.dispatch(fetchPublic());
         
     }
     componentDidUpdate(prevProps) {
         if( this.props.selectedActivity.title !== prevProps.selectedActivity.title) {
-          console.log(this.props.selectedActivity.title, prevProps.selectedActivity.title,'CONSOLELOG')
         }
       }
       triggerDelete(id) {
