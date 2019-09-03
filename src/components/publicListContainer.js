@@ -21,12 +21,31 @@ export class publicListContainer extends React.Component {
         }}
 
     renderResults() {
-
-        const listItems = this.props.activities.map((activity, i) =>
-            <li key={i}><Link to={`/info/${activity.id}`}>{activity.time} {activity.title}</Link></li>
-        );
+let hrtime;
+        const listItems = this.props.activities.map((activity, i) =>{
+            {
+                switch(activity.time){
+                    case "15":
+                    hrtime= "15 minutes";
+                    break;
+                    case "30":
+                    hrtime= "30 minutes";
+                    break;
+                    case "45":
+                    hrtime="45 minutes"
+                    break;
+                    case "1":
+                    hrtime = "1 hour"
+                    break;
+                    case "1+":
+                    hrtime="More than 1 Hour"
+                }
+            }
+            return <li key={i}><Link to={`/info/${activity.id}`}> {hrtime} || {activity.title}</Link></li>
+        });
         return (
             <div className="publiclistcontainer">
+             <div className="listtitle">Time To Complete || Title</div>
                 <ul>
                     {listItems}
                 </ul>
@@ -43,7 +62,7 @@ export class publicListContainer extends React.Component {
                         component={Input}
                         element="select"
                         name="time"
-                        label="Time"
+                        label="Search ByTime"
                         validate={[required, nonEmpty]}>
                             <option value="">Select a timeframe...</option>
                             <option value="15">15 minutes</option>

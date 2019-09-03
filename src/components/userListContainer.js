@@ -21,12 +21,43 @@ export class userListContainer extends React.Component {
         }}
 
     renderResults() {
-
-        const listItems = this.props.activities.map((activity, i) =>
-            <li key={i}><Link to={`/info/${activity.id}`}> {activity.time} {activity.title}</Link></li>
+    let hrtime; 
+    let hrprio
+        const listItems = this.props.activities.map((activity, i) => {
+            {
+                switch(activity.priority){
+                    case 1:
+                    hrprio="1 (URGENT)"
+                    break;
+                    case 2:
+                    hrprio="2 (Need To Do)"
+                    break;
+                    case 3:
+                    hrprio="3 (Can Do Whenever)"
+                }
+                switch(activity.time){
+                    case "15":
+                    hrtime= "15 minutes";
+                    break;
+                    case "30":
+                    hrtime= "30 minutes";
+                    break;
+                    case "45":
+                    hrtime="45 minutes"
+                    break;
+                    case "1":
+                    hrtime = "1 hour"
+                    break;
+                    case "1+":
+                    hrtime="more than 1 hour"
+                }
+            }
+            return <li key={i}><Link to={`/info/${activity.id}`}> {hrprio} || {hrtime} || {activity.title}</Link></li>
+        }
         );
         return (
             <div className="userlistcontainer">
+            <div className="listtitle">Priority || Time To Complete || Title</div>
                 <ul>
                     {listItems}
                 </ul>
@@ -43,7 +74,7 @@ export class userListContainer extends React.Component {
                         component={Input}
                         element="select"
                         name="time"
-                        label="Time"
+                        label="Search By Time"
                         validate={[required, nonEmpty]}>
                             <option value="">Select a timeframe...</option>
                             <option value="15">15 minutes</option>
@@ -54,7 +85,7 @@ export class userListContainer extends React.Component {
                             <option value="000">View All</option>
                     </Field>
 
-                    <button type="submit"><i className="fas fa-search"></i>Search By Time</button>
+                    <button type="submit"><i className="fas fa-search"></i> Search</button>
                 </form>
                 <div className="userlistcontainer">
                     <ul>

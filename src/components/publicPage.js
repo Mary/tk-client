@@ -3,6 +3,7 @@ import Header from './header';
 import Banner from './banner';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
+import { Link } from 'react-router-dom';
 import PublicListContainer from './publicListContainer';
 
 export function publicPage(props) {
@@ -11,10 +12,12 @@ export function publicPage(props) {
         <React.Fragment>
             <Banner />
 
-            <Header title="Public" />
-            <div className="public">
+            <Header title="Public Activities" />
+            <div className="publiclist">
 
                 <PublicListContainer />
+                <Link className="black-button" to="/add-activity">Add Activity</Link>
+                <Link className="black-button" to="/user-list">View Your List</Link>
             </div>
         </React.Fragment>
     );

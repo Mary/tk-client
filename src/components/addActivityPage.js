@@ -11,7 +11,7 @@ export function addActivityPage(props) {
     return (
         <React.Fragment>
                         <Banner/>
-            <Header title="Add Activity +" />
+            <Header title="Add Activity" />
             <div className="addactivity">
                 <AddActivityForm />
             </div>

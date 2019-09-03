@@ -59,16 +59,15 @@ export class addActivityForm extends React.Component {//this.state.title onChang
                             component={Input}
                             element="select"
                             name="isPublic"
-                            label="Make Public for others to see?"
+                            label="Make Public For Others To See?"
                             validate={[required, nonEmpty]}>
-                            <option value=""></option>
                             <option value="true">Yes, Make Public</option>
                             <option value="false">No, Keep Private</option>
         
                      
                         </Field>
-                        
-                        <button type="submit"><i className="fas fa-plus-square"></i> Add Activity</button>
+                        <br/>
+                        <button type="submit">Add Activity</button>
                     </form>
                 </div>
             );

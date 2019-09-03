@@ -15,14 +15,13 @@ export function LandingPage(props) {
             <div className="landing-page">
             <img className="logo" src={Logo} /><br></br>
                
-                <i>𝕋ι𝕞乇 ᛕเ𝕝ｌє𝓡</i><br>
-                </br>
                 <div className="desc">
-                    How to use:<br></br>
+                    <h2><center>Got Time To Kill?</center></h2>
+1.) Time Killer Helps You Remember What You Have To Do<br/>
+2.) Time Killer lets you prioritize your activities by <u>Urgency</u>, or by <u>Time</u><br/>
+3.) Time Killer lets you <s>steal</s> borrow ideas from the Community if you're stumped on How to Kill Some Time!<br/>
 
-                    ᴳᵒᵗ ᵀⁱᵐᵉ ᵗᵒ ᴷⁱˡˡ? <br></br>
-                    Cₒₘₚₗₑₜₑ yₒᵤᵣ ₒwₙ ₜₐₛₖₛ ₒᵣ gₑₜ ᵢdₑₐₛ fᵣₒₘ ₜₕₑ cₒₘₘᵤₙᵢₜy...
-
+<h3><i><center>Try it Today!</center></i></h3>
                  </div>
                 <br></br>
                 <Link className="black-button" to="/sign-up">Sign Up</Link>

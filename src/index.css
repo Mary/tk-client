@@ -4,12 +4,15 @@ body {
   justify-content: center;
   margin: auto;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f2417c
+  
+}
+.landing-page{
+  width:100%;
+
 }
 #bg{
   height: 100vh;
@@ -21,10 +24,10 @@ body {
   background: #f2417c;
 }
 .logo{
-  width: 60vw;
+  width: 50vw;
  display:flex;
- padding-top:10%;
- padding-bottom: 5%;
+ padding-top:5%;
+ padding-bottom: 1%;
   top:0;
   left: 0;
   margin: 0 auto;
@@ -44,8 +47,9 @@ body {
   align-items: center;
 }
 .desc{
-  text-align: center;
-  font-size: 70%;
+  /* text-align: center; */
+  font-size: 100%;
+  color: white;
 }
 .dashboard {
   display: flex;
@@ -60,95 +64,98 @@ a{
 
 }
 .black-button{
-  display:flex;
-  justify-content: space-around;
-  background: black;
-  width: 30%;
-  padding:10px;
-  margin: 10px;
-  border-radius: 5px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.05em;
+  border: 1px solid #5d83da;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+  background-color: #00cdff;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(53, 53, 53, 0.17);
+  text-align: center;
+  position: relative
+}
+.black-button:active{
+  top: 0.1em;
 }
 .close-button{
-  color: grey;
+  color: white;
   font-size: 60%;
   padding:10px;
 }
 .fa-window-close{
   color: black;
 }
-.addword{  
+.addActivity{  
   width: 50%;
   margin: 0 auto;
   padding: 10px;
-  border: 3px solid black;
-  border-radius: 5px;
 
 }
-.browse{
-  width: 50%;
+.publiclist{
+  width: 90%;
   margin: 0 auto;
   padding: 10px;
-  border: 3px solid black;
-  border-radius: 5px;
 }
+
 .loginpage{
     width: 50%;
     margin: 0 auto;
     padding: 10px;
-    border: 3px solid black;
-    border-radius: 5px;
+    text-align: center;
 }
 .signuppage{
   width: 50%;
   margin: 0 auto;
   padding: 10px;
-  border: 3px solid black;
-  border-radius: 5px;
+text-align: center;
 }
 .info{
   width: 90%;
-margin: 0 auto;
+  margin: 0 auto;
   overflow: auto;
   padding: 20px;
+ 
 }
-.mylist{
+.userlist{
   width: 90%;
   margin: 0 auto;
-
 }
-.mylistcontainer{
+.userlistcontainer{
   width: 90%;
-  border: 3px solid black;
-  border-radius: 5px;
   overflow: auto;
 }
-.browselistcontainer{
+.publiclistcontainer{
   width: 90%;
-  border-radius: 5px;
   overflow: auto;
 }
 .sign-up-Div{
   width: 90%;
   margin: 0 auto;
   padding: 10px;
-  border: 3px solid black;
-  border-radius: 5px;
+text-align: center;
 }
 input{
   border-radius: 2px;
   border: 2px solid black;
-  width:70%;
-  
+  outline: none;
+  width:25%;
 }
 input [type=text] {
   font-weight: bold !important;
+  outline: none;
+  border: 2px solid black;
+  width: 25%;
 }
 .sign-up-form input:focus{
   outline: none !important;
-  border:2px solid #eb3bf6;
+  border:2px solid #b1f63a;
 }
 .sign-up-form textarea:focus, input:focus {
-  color: #ee8743;
+  color: #b1f63a;
   font-weight: bold;
 }
 
@@ -157,29 +164,63 @@ input [type=text] {
   border:2px solid #b1f63a;
 }
 .login-form textarea:focus, input:focus {
-  color: #63bdd0;
+  color: #b1f63a;
   font-weight: bold;
 }
-.addWordForm input:focus{
-outline: none !important;
-border:2px solid #3b8eec;
+.addActivity{
+  text-align: center;
 }
-.addWordForm textarea:focus, input:focus {
-  color: #e9a400;
+.addActivityForm{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.addActivityForm input:focus{
+outline: none !important;
+border:2px solid #b1f63a;
+}
+.addActivityForm textarea:focus, input:focus {
+  color: #00cdff;
   font-weight: bold;
 }
 
-.addWordForm textarea:focus{
+.addActivityForm textarea:focus{
   outline: none !important;
-  border:2px solid #3b8eec
+  border:2px solid #b1f63a
   }
-  .addWordForm textarea:focus, input:focus {
-    color: #e9a400;
+  .addActivity textarea:focus, input:focus {
+    color: #00cdff;
     font-weight: bold;
   }
+.editActivityForm {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.editActivityForm textarea:focus, input:focus{
+padding: 1px;
+outline: none;
+color: #00cdff;
+font-weight: bold;
+}
+select{
+  outline: none;
+  background: black;
+  color: white;
+  font-weight: bold;
+  border: 2px solid black
+}
+select option{
+  background-color: white;
+  color: black
+}
+
+textarea{
+  border: 2px solid black
+}
 .banner{
   display: flex;
-  background-color: black;
   padding:5px;
   justify-content: center;
 }
@@ -188,10 +229,11 @@ border:2px solid #3b8eec;
   height: 35%;
 }
 .header{
-  width: 90%;
+width: 90%;
 display:flex;
 justify-content: space-between;
 padding: 01em;
+font-size:200%;
 
 }
 .footer{
@@ -199,6 +241,11 @@ padding: 01em;
   bottom:0;
   right: 0;
   margin: 20px;
+}
+.listtitle{
+  color: white;
+  font-weight: 500;
+  font-size: 150%;
 }
 label{
   display:block;
@@ -210,18 +257,19 @@ ul {
 }
 
 li{
+  display: inline-block;
   border: 1px solid black;
   margin: 15px;
   background-color: black;
   padding-left: 5px;
+  padding:10px;
   width: 75%;
   color: white;
-  border-radius: 5px;
 }
 @media only screen and (min-width: 436px) {
   
   html {
-  font: 200%/1.25 "Open Sans", sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 }
 dt {
@@ -234,19 +282,26 @@ dd {
 }
 
 dd {
-  border-radius: 5px;
+  width: 60%;
+  border-radius: 2px;
   padding: 5px;
   margin-bottom: 1em;
   background-color: black;
   color: white;
 }
 button{
-  background: black;
-  width: 150px;
-  padding:10px;
-  margin: 10px;
-  border-radius: 5px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.05em;
+  border: 1px solid #5d83da;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
   color: white;
-  font-size: 50%;
-  font-weight: bold;
+  background-color: #00cdff;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(53, 53, 53, 0.17);
+  text-align: center;
+  position: relative
 }

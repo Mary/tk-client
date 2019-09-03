@@ -11,10 +11,10 @@ export function UserListPage(props) {
     return (
         <React.Fragment>
             <Banner />
-            <Header title="User-List" />
+            <Header title="Personal Activities" />
             <div className="userlist">
-                <Link className="black-button" to="/add-activity">Add Activity</Link>
                 <UserListContainer {...props} />
+                <Link className="black-button" to="/add-activity">Add Activity</Link>
                 <Link className="black-button" to="/public">View Public List</Link>
             </div>
 

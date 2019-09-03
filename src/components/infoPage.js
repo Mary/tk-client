@@ -36,11 +36,9 @@ export class infoPage extends React.Component {
     editActivity = () => {
         return (
             <>
-                <div className="banner">
                   <Banner />
-                </div>
                 <Header title={this.props.selectedActivity.title} />
-                <div className="activityForm">
+                <div className="editActivityForm">
                 <form onSubmit={(e)=>{
         e.preventDefault();
         this.handleSubmit(e);
@@ -92,7 +90,7 @@ export class infoPage extends React.Component {
                             ref={(node) => { this.priority = node }}>
                             <option value="true">Yes, Make Public</option>
                             <option value="false">No, Keep Private</option>
-                        </select>
+                        </select><br/>
                       
                         <button type="submit">
                             Update Activity</button>
@@ -110,6 +108,34 @@ export class infoPage extends React.Component {
         let editActivityButton;
         let publicStatus;
         let currentuserowned;
+        let hrtime;
+        let hrprio;
+        switch(this.props.selectedActivity.priority){
+            case 1:
+            hrprio="1 (URGENT)"
+            break;
+            case 2:
+            hrprio="2 (Need To Do)"
+            break;
+            case 3:
+            hrprio="3 (Can Do Whenever)"
+        }
+        switch(this.props.selectedActivity.time){
+            case "15":
+            hrtime= "15 minutes";
+            break;
+            case "30":
+            hrtime= "30 minutes";
+            break;
+            case "45":
+            hrtime="45 minutes"
+            break;
+            case "1":
+            hrtime = "1 hour"
+            break;
+            case "1+":
+            hrtime="more than 1 hour"
+        }
         if(this.props.selectedActivity.isPublic===true){
             publicStatus="Public"
         }
@@ -119,9 +145,6 @@ export class infoPage extends React.Component {
         if(this.props.selectedActivity.user_Id === this.props.username.id) {
             currentuserowned="(You! 😊)"
         }
-        // else{
-        //     currentuserowned = this.props.selectedActivity.createdBy
-        // }
         if (this.state.editMode) {
             return this.editActivity()
         }
@@ -136,9 +159,7 @@ export class infoPage extends React.Component {
         return (
             <React.Fragment>
                 {this.state.Redirect ? <Redirect to={this.state.to} /> : null}
-                <div className="banner">
-                    <img src={Banner}></img>
-                </div>
+                <Banner />
                 <Header title={this.props.selectedActivity.title} />
                 {this.state.editMode ? this.editActivity() : (
                     this.props.selectedActivity && (
@@ -147,14 +168,13 @@ export class infoPage extends React.Component {
                                 <dt>Title:</dt>
                                 <dd>{this.props.selectedActivity.title}</dd>
                                 <dt>Time To Complete: </dt>
-                                <dd>{this.props.selectedActivity.time}</dd>
+                                <dd>{hrtime}</dd>
                                 <dt>Priority:</dt>
-                                <dd>{this.props.selectedActivity.priority}</dd>
+                                <dd>{hrprio}</dd>
                                 <dt>Description:</dt>
                                 <dd>{this.props.selectedActivity.description}</dd>
                                 <dt>Public or Private:</dt>
                                 <dd>{publicStatus}</dd>
-                                <dd>{this.props.selectedActivity.isPublic}</dd>
                                 <dt>Created By:</dt>
                                 <dd>{this.props.selectedActivity.createdBy} {currentuserowned}</dd>
 
